@@ -1,7 +1,3 @@
-/bin
-/obj
-*.o
-*.depend
-*.cbp
-*.layout
+Assignment\ Solutions/bin
+Assignment\ Solutions/.vscode
 *.exe
