@@ -1,20 +1,35 @@
 #include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+
+void reverse_string(char*);
 
 int main(){
-    char is_odd;
-    int usr_input;
-    printf("Enter the number\n");
-    scanf("%d", &usr_input);
+    char str[] = "i like this program very much";
+    
+    reverse_string(str);
+    printf("%s\n", str);
 
-    float helper = usr_input/2.0;
-    if(helper==(int)helper) // No decimal point
-        is_odd=0;
-    else
-        is_odd=1;
-    
-    printf("The number is odd = %d\n", is_odd);
-    printf("The number is even = %d", !is_odd);
-    
     return 0;
+}
 
+void reverse_string(char *str){
+    
+    char reverse_str[strlen(str)];
+    int word_start=strlen(str)-1, word_end=strlen(str)-1;
+    int current_start_index=0;
+
+    while(word_start>=0){
+        while(word_start>=0 && str[word_start]!=' ')
+            word_start--;
+        for(int i=word_start+1; i<=word_end; i++){
+            reverse_str[current_start_index++] = str[i];
+        }
+        if(current_start_index < strlen(str))
+            reverse_str[current_start_index++] = ' ';
+        
+        word_end = --word_start;
+    }
+    
+    strcpy(str, reverse_str);
 }

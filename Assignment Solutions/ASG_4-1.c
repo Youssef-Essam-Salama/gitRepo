@@ -1,20 +1,20 @@
 #include <stdio.h>
 
+void edit (int*);
+
 int main(){
-    char is_odd;
+
     int usr_input;
     printf("Enter the number\n");
     scanf("%d", &usr_input);
 
-    float helper = usr_input/2.0;
-    if(helper==(int)helper) // No decimal point
-        is_odd=0;
-    else
-        is_odd=1;
-    
-    printf("The number is odd = %d\n", is_odd);
-    printf("The number is even = %d", !is_odd);
+    printf("Before calling edit x = %d\n", usr_input);
+    edit(&usr_input);
+    printf("After calling edit x = %d\n", usr_input);
     
     return 0;
+}
 
+void edit (int *x){
+    ++*x;
 }
